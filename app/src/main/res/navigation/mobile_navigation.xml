@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_landing">
+
+    <fragment
+        android:id="@+id/navigation_landing"
+        android:name="com.assignment.acronym.ui.fragment.homefragment.HomeFragment"
+        android:label="Landing"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_navigation_landing_to_navigation_meaning"
+            app:destination="@id/navigation_meaning" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_meaning"
+        android:name="com.assignment.acronym.ui.fragment.resultfragment.ResultFragment"
+        android:label="Landing"
+        tools:layout="@layout/fragment_result">
+
+        <argument
+            android:name="title"
+            android:defaultValue=""
+            app:argType="string" />
+
+    </fragment>
+
+</navigation>

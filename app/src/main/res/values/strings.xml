@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Acronym</string>
+    <string name="error">Error</string>
+    <string name="long_form">Long Form</string>
+    <string name="not_found">Not found!</string>
+    <string name="ok">Ok</string>
+    <string name="search">Search</string>
+    <string name="search_string">Search String</string>
+    <string name="short_form">Short Form</string>
+</resources>

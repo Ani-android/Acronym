@@ -1,0 +1,79 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+    id "androidx.navigation.safeargs.kotlin"
+}
+
+apply from: "../dependencies.gradle"
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.assignment.acronym"
+        minSdk 30
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(':data')
+    implementation project(':network')
+
+    implementation supportDependencies.coreKtx
+    implementation supportDependencies.appCompat
+    implementation supportDependencies.material
+    implementation supportDependencies.constraintlayout
+    implementation lifeCycleLibraries.lifeCycleExtension
+    implementation lifeCycleLibraries.liveData
+    implementation lifeCycleLibraries.viewmodel
+    implementation navigationLibraries.navigation
+    implementation navigationLibraries.navigationUi
+    implementation imageLibraries.glide
+    implementation dependencyInjectionLibraries.hiltAndroid
+    kapt dependencyInjectionLibraries.hiltAndroidCompiler
+    kapt dependencyInjectionLibraries.hiltLifecycleViewmodel
+    annotationProcessor dependencyInjectionLibraries.hiltCompiler
+    implementation dependencyInjectionLibraries.hilt
+    implementation coroutineLibraries.coroutinesCore
+    implementation coroutineLibraries.coroutinesAndroid
+    implementation coroutineLibraries.coroutinesPlayServices
+    implementation networkLibraries.retrofit
+    implementation networkLibraries.converterGson
+    implementation networkLibraries.loggingInterceptor
+    implementation networkLibraries.converterScalars
+    implementation networkLibraries.gson
+    testImplementation testLibraries.junit
+    testImplementation androidTestLibraries.mock
+    testImplementation androidTestLibraries.mockKotlin
+    testImplementation androidTestLibraries.mockk
+    testImplementation 'org.mockito:mockito-inline:2.13.0'
+    androidTestImplementation androidTestLibraries.junit
+}
